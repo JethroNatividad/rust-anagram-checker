@@ -68,8 +68,16 @@ fn get_input<T: std::str::FromStr>(prompt: &str) -> T {
 
 fn main() {
     // print "Enter two strings and I'll tell you if they are anagrams."
+    println!("Enter two strings and I'll tell you if they are anagrams.");
     // str1 input "Enter the first string: "
+    let str1: String = get_input("Enter the first string: ");
     // str2 input "Enter the second string: "
+    let str2: String = get_input("Enter the second string: ");
     // check is_anagram
+    let status: &str = match is_anagram(&str1, &str2) {
+        true => "are",
+        false => "are not"
+    }
     // print "{str1}" and "{str2}" {are | are not} anagrams.
+    println!("\"{}\" and \"{}\" {} anagrams.", str1, str2, status);
 }
