@@ -11,14 +11,14 @@ fn is_anagram(str1: &str, str2: &str) -> bool {
         return false;
     }
 
-    let mut str1_frequency: HashMap<String, i32> = HashMap::new();
+    let mut str1_frequency: HashMap<char, i32> = HashMap::new();
     for c in str1.chars() {
-        *str1_frequency.entry(c.to_string()).or_insert(1) += 1;
+        *str1_frequency.entry(c).or_insert(1) += 1;
     }
 
-    let mut str2_frequency: HashMap<String, i32> = HashMap::new();
+    let mut str2_frequency: HashMap<char, i32> = HashMap::new();
     for c in str2.chars() {
-        *str2_frequency.entry(c.to_string()).or_insert(1) += 1;
+        *str2_frequency.entry(c).or_insert(1) += 1;
     }
 
     for (key, value) in &str1_frequency {
