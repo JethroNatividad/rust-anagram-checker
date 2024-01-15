@@ -50,5 +50,9 @@ mod tests {
 }
 
 fn main() {
-    println!("Hello, world!");
+    // print "Enter two strings and I'll tell you if they are anagrams."
+    // str1 input "Enter the first string: "
+    // str2 input "Enter the second string: "
+    // check is_anagram
+    // print "{str1}" and "{str2}" {are | are not} anagrams.
 }
