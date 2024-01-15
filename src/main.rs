@@ -78,8 +78,8 @@ fn main() {
     // check is_anagram
     let status: &str = match is_anagram(&str1, &str2) {
         true => "are",
-        false => "are not"
-    }
+        false => "are not",
+    };
     // print "{str1}" and "{str2}" {are | are not} anagrams.
     println!("\"{}\" and \"{}\" {} anagrams.", str1, str2, status);
 }
