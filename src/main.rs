@@ -5,6 +5,13 @@ use std::collections::HashMap;
 // process: check anagram
 // output: "str1" and "str2" {are | are not} anagrams
 
+fn get_char_frequency(s: &str) -> HashMap<char, i32> {
+    let mut frequency: HashMap<char, i32> = HashMap::new();
+    for c in s.chars() {
+        *frequency.entry(c).or_insert(0) += 1;
+    }
+}
+
 fn is_anagram(str1: &str, str2: &str) -> bool {
     // if not the same length, return false
     if str1.len() != str2.len() {
