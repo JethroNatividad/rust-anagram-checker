@@ -1,11 +1,38 @@
+use std::collections::HashMap;
+
 // program that takes in two strings, and checks if they are anagram or not.
 // Inputs: str1, str2
 // process: check anagram
 // output: "str1" and "str2" {are | are not} anagrams
 
-def is_anagram(str1: String, str2: String) -> bool {
+fn is_anagram(str1: &str, str2: &str) -> bool {
     // if not the same length, return false
-    // count the frequency of each letter, if it is equal, then return true, else false
+    if str1.len() != str2.len() {
+        return false;
+    }
+
+    let mut str1_frequency: HashMap<String, i32> = HashMap::new();
+    for c in str1.chars() {
+        *str1_frequency.entry(c.to_string()).or_insert(1) += 1;
+    }
+
+    let mut str2_frequency: HashMap<String, i32> = HashMap::new();
+    for c in str2.chars() {
+        *str2_frequency.entry(c.to_string()).or_insert(1) += 1;
+    }
+
+    for (key, value) in &str1_frequency {
+        match str2_frequency.get(key) {
+            Some(str2_value) => {
+                if value - str2_value != 0 {
+                    return false;
+                }
+            }
+            None => return false,
+        }
+    }
+
+    true
 }
 
 #[cfg(test)]
@@ -15,10 +42,10 @@ mod tests {
 
     #[test]
     fn test_is_anagram() {
-        assert_eq!(is_anagram("note".to_string(), "tone".to_string()), true);
-        assert_eq!(is_anagram("listen".to_string(), "silent".to_string()), true);
-        assert_eq!(is_anagram("a".to_string(), "as".to_string()), false);
-        assert_eq!(is_anagram("car".to_string(), "rar".to_string()), false);
+        assert_eq!(is_anagram("note", "tone"), true);
+        assert_eq!(is_anagram("listen", "silent"), true);
+        assert_eq!(is_anagram("a", "as"), false);
+        assert_eq!(is_anagram("car", "rar"), false);
     }
 }
 
