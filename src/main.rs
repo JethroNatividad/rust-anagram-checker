@@ -24,7 +24,7 @@ fn is_anagram(str1: &str, str2: &str) -> bool {
     for (key, value) in &str1_frequency {
         match str2_frequency.get(key) {
             Some(str2_value) => {
-                if value - str2_value != 0 {
+                if !value.eq(str2_value) {
                     return false;
                 }
             }
