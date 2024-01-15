@@ -10,6 +10,7 @@ fn get_char_frequency(s: &str) -> HashMap<char, i32> {
     for c in s.chars() {
         *frequency.entry(c).or_insert(0) += 1;
     }
+    frequency
 }
 
 fn is_anagram(str1: &str, str2: &str) -> bool {
@@ -18,15 +19,8 @@ fn is_anagram(str1: &str, str2: &str) -> bool {
         return false;
     }
 
-    let mut str1_frequency: HashMap<char, i32> = HashMap::new();
-    for c in str1.chars() {
-        *str1_frequency.entry(c).or_insert(0) += 1;
-    }
-
-    let mut str2_frequency: HashMap<char, i32> = HashMap::new();
-    for c in str2.chars() {
-        *str2_frequency.entry(c).or_insert(0) += 1;
-    }
+    let str1_frequency: HashMap<char, i32> = get_char_frequency(str1);
+    let str2_frequency: HashMap<char, i32> = get_char_frequency(str2);
 
     for (key, value) in &str1_frequency {
         match str2_frequency.get(key) {
