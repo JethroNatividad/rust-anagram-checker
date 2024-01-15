@@ -31,7 +31,6 @@ fn is_anagram(str1: &str, str2: &str) -> bool {
             None => return false,
         }
     }
-
     true
 }
 
