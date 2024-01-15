@@ -1,4 +1,6 @@
 use std::collections::HashMap;
+use std::io;
+use std::io::Write;
 
 // program that takes in two strings, and checks if they are anagram or not.
 // Inputs: str1, str2
