@@ -3,6 +3,10 @@
 // process: check anagram
 // output: "str1" and "str2" {are | are not} anagrams
 
+def is_anagram(str1: String, str2: String) -> bool {
+    //
+}
+
 #[cfg(test)]
 
 mod tests {
