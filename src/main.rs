@@ -4,7 +4,8 @@
 // output: "str1" and "str2" {are | are not} anagrams
 
 def is_anagram(str1: String, str2: String) -> bool {
-    //
+    // if not the same length, return false
+    // count the frequency of each letter, if it is equal, then return true, else false
 }
 
 #[cfg(test)]
