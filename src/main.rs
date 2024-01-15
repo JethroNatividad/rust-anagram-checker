@@ -3,6 +3,20 @@
 // process: check anagram
 // output: "str1" and "str2" {are | are not} anagrams
 
+#[cfg(test)]
+
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_is_anagram() {
+        assert_eq!(is_anagram("note".to_string(), "tone".to_string()), true);
+        assert_eq!(is_anagram("listen".to_string(), "silent".to_string()), true);
+        assert_eq!(is_anagram("a".to_string(), "as".to_string()), false);
+        assert_eq!(is_anagram("car".to_string(), "rar".to_string()), false);
+    }
+}
+
 fn main() {
     println!("Hello, world!");
 }
